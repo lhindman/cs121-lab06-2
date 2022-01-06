@@ -60,6 +60,37 @@ Please enter the filename: glenwood-boise-year.tsv
 ...
 ```
 
+### Program Design
+The MonitoringStation class should contain three private instance variables to represent the required data. Two should be String variables to represent the StationID and Description while the third should be an ArrayList of FlowSample objects to represent Observation data.  When a new Monitoring Station object is created, the constructor should assign values to the StationID and Description instance variables and it should instantiate a new (empty) ArrayList of Observations. The constructor should have the following signature:
+
+```
+public MonitoringStation(String stationID, String description)
+```
+
+The MonitoringStation class should include a method called loadSampleData() that takes a File object as a parameter. This method will read a text file containing tab separated values (tab delimited values) with each row representing a single observation. It will reach the file row-by-row and each line will be used to create a new FlowSample object which will then be added to the ArrayList of Observations. It should return the number of FlowSample objects successfully added to the ArrayList.
+
+If an Exception occurs when attempting to open the File object with the Scanner, display an error message in the console and exit immediately with a nonzero exit status.
+
+The loadSampleData() method should have the following signature:
+
+```
+public int loadSampleData(File database)
+```
+
+The MonitoringStation class should include a method called displayObservations() that will loop through the FlowSample objects in the observations ArrayList, calling the toString() method on each and displaying the String value in the console. It should return the number of observations displayed. The displayObservations() method should have the following signature:
+
+```
+public int displayObservations()
+```
+
+The MonitoringStation class should include a toString() method that will return a String that contains a nicely formatted representation of the class information as shown below.  It should not display the individual FlowSample objects.
+
+```
+StationID: <stationID>
+Description: <description>
+Number of Observations: <observations.size()>
+```
+
 ### Implementation Guide
 1. Expand the folder named A2-Kennel and create two new files named Dog.java and Kennel.java respectively
 2. Design a program to satisfy the requirements in the Problem Description and enter the program code in Dog.java and the driver code in Kennel.java
