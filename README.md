@@ -1,30 +1,64 @@
-# Lab06 Guide
-## Getting Started
-[Lab Introduction Video](https://youtu.be/Gz_ZKspfhuE)  
-- Please clone the [Mod06 Code Examples](https://github.com/lhindman/cs121-mod06-examples.git).
-- Please watch the [Activity 4 Walkthough Videos](https://www.youtube.com/playlist?list=PLbxWwkW_BhyB9fHkeDHCyzfbV6MB4IeNU).  
+# Module 6 Lab Guide (part 2)
 
-
-### Code Style Requirements
-Please review the [CS121 Style Guide](https://docs.google.com/document/d/1LWbGQBKkApnNAzzgwOSvRM03DmhYWx5yEfecT2WXfjI/edit?usp=sharing) and apply it in all lab activities and projects this semester. Coding Style will assessed as part of your lab and project grades.
-
-### Code Quality Requirements
-- Code must compile without warnings using openjdk11
-- Code must run without errors or warnings on safe-path and edge test cases
-- More to come as we learn about input validation and exception handling 
-## Activity 1 - CountFlips
+## Activity 2 - MonitoringStation (Required)
 ### Problem Description
-Revise the Coin class, found in the Module 6 examples, such that its state is represented internally using a boolean variable.  Test the new versions of the class as part of the CountFlips and FlipRace programs.
-### Implementation Guide
-1. Open the Module 6 code examples and copy Coin.java, FlipRace.java and CountFlips.java from the CountFlips folder into the folder named A1-CountFlips
-2. Modify Coin.java as described in the Problem Description
-3. Test the program using both the CountFlips driver class
-4. Commit the changes to your local repository with a message stating that Activity 1 is completed.
-5. Push the changes from your local repository to the github classroom repository.
+The USGS maintains a large number of monitoring stations on rivers around the country. These monitoring stations collect sample data on a wide range of metrics, including flow rate. In this activity we will create a class to represent a monitoring station. Each MonitoringStation class will include a StationID, a Description and a collection of  Observations. These observations will be stored internally as an ArrayList of FlowSample objects and a single station may contain thousands or 10s of thousands of individual FlowSample observations.
 
-## Activity 2 - Kennel
-### Problem Description
-Design and implement a class called *Dog* that contains instance data that represent the dog's name and age. Define the *Dog* constructor to accept and initialize instance data. Include getter and setter methods for the name and age. Include a method to compute and return the age of the dog in "person years" (seven times the dog's age). Include a *toString* method that returns a one-line description of the dog. Create a driver class called *Kennel*, whose *main* method instantiates and updates several *Dog* objects.
+A number of text files containing tab-delimited USGS water flow data collected at the Glenwood Bridge on the Boise River have been provided. The comments and header rows have been removed to make processing these files easier.  The program should prompt the user to enter a Station ID, Station Description and a File Name.  It will then create a new Monitoring Station object and populate it with data from the provided text file.  Finally, it will display in the console the Monitoring Station information, including the number of samples loaded. For debugging purposes, it will also print each of the FlowSample objects by calling their respective toString() methods. Your program should behave as shown in the examples below:
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-1.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-3.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-day.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-week.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-month.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-year.tsv
+
+...
+```
 
 ### Implementation Guide
 1. Expand the folder named A2-Kennel and create two new files named Dog.java and Kennel.java respectively
