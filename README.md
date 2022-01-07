@@ -21,7 +21,7 @@ public MonitoringStation(String stationID, String description)
 ```
 
 #### Other Methods
-The MonitoringStation class should include a method called loadSampleData() that lines of TSV sample data from a specified file, creates FlowSample objects from each and addes them to the Observations ArrayList. Use the javadoc comment below to implement the required functionity.  
+The MonitoringStation class should include a method called loadSampleData() that reads lines of TSV sample data from a specified file, creates FlowSample objects from each and addes them to the Observations ArrayList. The FileEcho example from the previous module is an excellent reference on how to read lines from a File. Use the javadoc comment below to implement the required functionity.  
 ```
 /**
  * Read tab deliminated water flow data from specified TSV database file
