@@ -91,45 +91,177 @@ Description: <description>
 Number of Observations: <observations.size()>
 ```
 
+In the main() method of the MonitoringStationDriver class, use a Scanner to prompt the user to enter a StationID, Description and Filename of text file contain tab-delimited sample data.  Check if the file exists (and is a file) and if it does not, display an error message and prompt the user again.
+
+Use the user supplied StationID and Description to create a new MonitoringStation object.  Then call the loadSampleData() method to populated the MonitoringStation with data. Store the return value to a variable and display a message in the console stating that it successfully loaded N samples. Call the displayObservations() method on the MonitoringStation to display the sample data in the console.  Finally, call the toString() method on the MonitoringStation and display the returned String value in the console as a summary of the MonitoringStation. The examples below show the expected output for a couple different datasets.
+
+NOTE:  You are welcome to copy LabUtility.java class we created in the previous module and use the LabUtility.getFile() static method we created in that lab. You wrote it and one of the priciples of object oriented programming is code reuse. :)
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-1.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-3.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: missing.tsv
+Error: File does not exist.
+Please enter the filename: GlenwoodBoise1.tsv
+Error: File does not exist.
+Please enter the filename: glenwood-boise-1.tsv
+...
+```
+
 ### Implementation Guide
-1. Expand the folder named A2-Kennel and create two new files named Dog.java and Kennel.java respectively
-2. Design a program to satisfy the requirements in the Problem Description and enter the program code in Dog.java and the driver code in Kennel.java
-3. Test the program using the run link above the main method. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
-4. Commit the changes to your local repository with a message stating that Activity 2 is completed.
+1. Expand the folder named MonitoringStation, copy FlowSample.java from the FlowSampleParser activity and open MonitoringStation.java and MonitoringStationDriver.java
+2. Design a program to satisfy the requirements in the Problem Description and Program Design sections
+3. Test the program using the sample user input and compare against the expected output. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
+4. Commit the changes to your local repository with a message stating that Lab Activity 2 is completed.
+5. Push the changes from your local repository to the github classroom repository.
+6. Take a break, you've earned it!  :)
+
+## Lab Activity 3 - RiverFlowStats
+### Problem Description
+When we have a large collection of data it is often desirable to be able to generate statistical information about the data in aggregate. In this activing we are going to extend our MonitoringStation class to provide the following statistics over the observation data:
+- Max Flow Rate
+- Min Flow Rate
+- Avg Flow Rate
+- Number of Samples
+
+There is obviously a lot more we could do with our collection of FlowSample data, but these should be sufficent for our purposes. :)  Below is a sample run of our program with 1 year of USGS Sample Data collected at the Glenwood Bridge.
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-year.tsv
+
+...
+```
+
+### Program Design
+Please copy FlowSample.java and MonitoringStation.java from the MonitoringStation folder into the RiverFlowStats folder. This will allow the reuse of these classes.  Use the javadoc comments below to implement four additional methods in the MonitoringStation class.
+
+```
+/**
+ * Iterate through the ArrayList of FlowSample objects and maintain a reference to the
+ *    FlowSample object with the highest flow rate value. If a FlowSample with a higher 
+ *    flow rate is found, update the reference to point at the higher object. Once the
+ *    the entire collection of observations has been processed, return the reference to 
+ *    FlowSample object with the highest flow rate. 
+ *
+ *    If a FlowSample is found with the same flow rate as the current highest flow rate,
+ *    do not update the reference.
+ *    If the ArrayList of observations is empty, return Null
+ *
+ *    @return Reference to FlowSample object containing the highest flow rate value
+ */   
+public FlowSample getMaxFlowRate() {...}
+```
+
+```
+/**
+ * Iterate through the ArrayList of FlowSample objects and maintain a reference to the
+ *    FlowSample object with the lowest flow rate value. If a FlowSample with a lower 
+ *    flow rate is found, update the reference to point at the lower object. Once the
+ *    the entire collection of observations has been processed, return the reference to 
+ *    FlowSample object with the lowest flow rate. 
+ *
+ *    If a FlowSample is found with the same flow rate as the current lowest flow rate,
+ *    do not update the reference.
+ *    If the ArrayList of observations is empty, return Null
+ *
+ *    @return Reference to FlowSample object containing the lowest flow rate value
+ */   
+public FlowSample getMinFlowRate() {...}
+```
+
+```
+/**
+ * Iterate through the ArrayList of FlowSample objects to calculate the average flow rate
+ *    for the set of observations.  Return this value as double to the caller
+ *
+ *    If the ArrayList of observations is empty, return 0.0
+ *
+ *    @return Average flow rate
+ */   
+public double getAvgFlowRate() {...}
+```
+
+```
+/**
+ * Return the total number of FlowSample observation
+ *
+ *    @return Total number of FlowSample observations for this Monitoringstations
+ */   
+public int getNumSamples() {...}
+```
+
+In the main() method of the RiverFlowStats class, use a Scanner to prompt the user to enter a StationID, Description and Filename of text file contain tab-delimited sample data.  Check if the file exists (and is a file) and if it does not, display an error message and prompt the user again.
+
+Use the user supplied StationID and Description to create a new MonitoringStation object.  Then call the loadSampleData() method to populated the MonitoringStation with data. Store the return value to a variable and display a message in the console stating that it successfully loaded N samples. 
+
+Use the getMaxFlowRate() and getMinFlowRate() methods to get references to FlowSample objects for the respective values. Then call the toString() method on each and display the resulting String data in the console.
+
+Use the getAvgFlowRate() and getNumSamples() methods to get double and int values (respectively) and display them with appropriate label in the console.
+
+The examples below show the expected output for a the years 2000, 2010 and 2020.
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-2000.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-2010.tsv
+
+...
+```
+
+#### Expected Program Output (with sample user input)
+```
+Please enter the station id: 13206000	
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-2020.tsv
+
+...
+```
+
+### Implementation Guide
+1. Expand the folder named RiverFlowStats, copy FlowSample.java and MonitoringStation.java from the MonitoringStation folder, then open MonitoringStation.java and RiverFlowStats.java.
+2. Design a program to satisfy the requirements in the Problem Description and Program Design sections
+3. Test the program using the sample user input and compare against the expected output. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
+4. Commit the changes to your local repository with a message stating that Lab Activity 3 is completed.
 5. Push the changes from your local repository to the github classroom repository.
 
-## Activity 3 - Bookshelf
-### Problem Description
-Design and implement a class called *Book* that contains instance data for the title, author, publisher, and copyright date. Define the *Book* constructor to accept and initialize these data. Include setter and getter methods for all instance data. Include a *toString* method that returns a nicely formatted, multiline description of the book. Create a driver class called *Bookshelf*, whose *main* method instantiates and updates several *Book* objects.
+## Coding Journal (Optional)
+Keep a journal of your activities as you work on this lab. Many of the best engineers that I have worked with professionally have kept some sort of engineering journal. I personally packed notebooks around with me for nearly 8 years before I began keeping my notes electronically.   
 
-### Implementation Guide
-1. Expand the folder named A3-Bookshelf and create two new files named Book.java and Bookshelf.java respectively
-2. Design a program to satisfy the requirements in the Problem Description and enter the program code in Book.java and the driver code in Bookshelf.java
-3. Test the program using the run link above the main method. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
-4. Commit the changes to your local repository with a message stating that Activity 3 is completed.
-5. Push the changes from your local repository to the github classroom repository
+Your journal can track ideas, bugs, cool links, code snippets, shell commands, rants, or simply a reflection on what worked well or not-so-well with this lab activity. I will not be grading the content of your journal, but I will expect at least two timestamped journal entries of at least a 75 to 150 words each added to the provided Journal.md file.  The purpose of this component is to help develop the habit of taking notes and creating documentation while you code. The more detail you provide the better as that will help you if you ever need to refer back to this project in the future.
 
+## Markdown Resources
+Markdown is a notation that is used to format text documents.  It is widely used in Software Development shops around the world, which is why we're asking you to use it in your lab documentation.  
 
-## Activity 4 - SnakeEyes
-### Problem Description
-Using the *Die* class from the SnakeEyes folder in the Module 6 examples, design and implement a class called *PairOfDice*, composed of two *Die* objects. Include methods to set and get the individual die values, a method to roll the dice, and a method that returns the current sum of the two die values. Rewrite the *SnakeEyes* program using a *PairOfDice* object.
-
-### Implementation Guide
-1. Open the Module 6 code examples and copy Die.java and SnakeEyes.java from the SnakeEyes folder into the A4-SnakeEyes folder.
-2. Design a program to satisfy the requirements in the Problem Description and implement it in a file named PairOfDice.java
-3. Test the program using the modified version of the SnakeEyes program. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
-4. Commit the changes to your local repository with a message stating that Activity 4 is completed.
-5. Push the changes from your local repository to the github classroom repository
-
-## Activity 5 - GameOfPig
-### Problem Description
-Using the *PairOfDice* class from Activity 4, design and implement a class to play a game called Pig. In this game, the user competes against the computer. On each turn, the current player rolls a pair of dice and accumulates points. The goal is to reach 100 points before your opponent does. If, on any turn, the player rolls a 1 (on either die), all points accumulated for that round are forfeited, and control of the dice moves to the other player.  
-
-If the player rolls two 1's in one turn, the player loses all points accumulated thus far in the game and loses control of the dice. Therefore, the player must decide either to roll again (be a pig) and risk losing points or to relinquish control of the dice, possibly allowing the other player to win. Implement the computer player such that it always relinquishes the dice after accumulating 20 or more points in any given round.
-
-### Implementation Guide
-1. Copy Die.java and PairOfDice.java from A4-SnakeEyes into the A5-GameOfPig folder.
-2. Design a program to satisfy the requirements in the Problem Description and implement it in a file named GameOfPig.java
-3. Test the program using the GameOfPig driver program. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
-4. Commit the changes to your local repository with a message stating that Activity 5 is completed.
-5. Push the changes from your local repository to the github classroom repository
+Github provides a guide for getting started:  [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
