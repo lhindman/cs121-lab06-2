@@ -34,6 +34,7 @@ The MonitoringStation class should include a method called loadSampleData() that
  *    If a FileNotFoundException occurs when opening the database File
  *    with a Scanner object, display the following error in the console
  *    and return a sampleCount of zero.
+ *
  * @param database File object containing TSV formatted water sample data
  * @return Number of samples processed
  */
