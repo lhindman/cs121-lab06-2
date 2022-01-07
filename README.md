@@ -7,6 +7,7 @@ The USGS maintains a large number of monitoring stations on rivers around the co
 A number of text files containing tab-delimited USGS water flow data collected at the Glenwood Bridge on the Boise River have been provided. The comments and header rows have been removed to make processing these files easier.  The program should prompt the user to enter a Station ID, Station Description and a File Name.  It will then create a new Monitoring Station object and populate it with data from the provided text file.  Finally, it will display in the console the Monitoring Station information, including the number of samples loaded. For development purposes, it will also print each of the FlowSample objects by calling their respective toString() methods. 
 
 ### Program Design
+Please copy FlowSample.java from the FlowSampleParser activity into the MonitoringStation folder. This will allow us to take advantage of the FlowSample functionality we implemented in the earlier activities.
 #### Instance Variables
 The MonitoringStation class should contain three private instance variables to represent the required data as shown below:
 - **String:** stationID, description
@@ -22,26 +23,56 @@ public MonitoringStation(String stationID, String description)
 #### Other Methods
 The MonitoringStation class should include a method called loadSampleData() that takes a File object as a parameter. This method will read a text file containing tab separated values (tab delimited values) with each row representing a single observation. It will reach the file row-by-row and each line will be used to create a new FlowSample object which will then be added to the ArrayList of Observations. It should return the number of FlowSample objects successfully added to the ArrayList.
 
-If an Exception occurs when attempting to open the File object with the Scanner, display an error message in the console and exit immediately with a nonzero exit status.
+If an Exception occurs when attempting to open the File object with the Scanner, display an error message in the console and return a sample count of 0
 
 The loadSampleData() method should have the following signature:
 
 ```
+/**
+ * Read tab deliminated water flow data from specified TSV database file
+ *    where each line in the file represents exactly one flow sample. 
+ *    For each line, create a new FlowSample object and add it to the
+ *    observations ArrayList. As each sample is added, increment a counter
+ *    to track the total number of observations. When all flow samples
+ *    have been processed, return the sample count.
+ * 
+ *    If a FileNotFoundException occurs when opening the database File
+ *    with a Scanner object, display the following error in the console
+ *    and return a sampleCount of zero.
+ * @param database File object containing TSV formatted water sample data
+ * @return Number of samples processed
+ */
 public int loadSampleData(File database) {...}
 ```
 
 The MonitoringStation class should include a method called displayObservations() that will loop through the FlowSample objects in the observations ArrayList, calling the toString() method on each and displaying the String value in the console. It should return the number of observations displayed. The displayObservations() method should have the following signature:
 
 ```
+/**
+ * Display all of the FlowSample objects in the observations ArrayList 
+ *     in the console, by calling toString() on each sample object 
+ *     and displaying the resulting String value using println(). Count
+ *     the number of items displayed and return this value to the caller.
+ * 
+ * @return Number of samples displayed
+ */
 public int displayObservations() {...}
 ```
 
 The MonitoringStation class should include a toString() method that will return a String that contains a nicely formatted representation of the class information as shown below.  It should not display the individual FlowSample objects.
 
 ```
-StationID: <stationID>
-Description: <description>
-Number of Observations: <observations.size()>
+/**
+ * Return a String representation of the current MonitoringStation object
+ *     using the following template:
+ * 
+ *     StationID: <stationID>
+ *     Description: <description>
+ *     Number of Observations: <number of observations>
+ * 
+ * @return String value representing this MonitoringStation object
+ */
+public String toString() 
 ```
 
 In the main() method of the MonitoringStationDriver class, use a Scanner to prompt the user to enter a StationID, Description and Filename of text file contain tab-delimited sample data.  Check if the file exists (and is a file) and if it does not, display an error message and prompt the user again.
