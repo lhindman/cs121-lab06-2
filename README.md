@@ -191,16 +191,7 @@ When we have a large collection of data it is often desirable to be able to gene
 - Avg Flow Rate
 - Number of Samples
 
-There is obviously a lot more we could do with our collection of FlowSample data, but these should be sufficent for our purposes. :)  Below is a sample run of our program with 1 year of USGS Sample Data collected at the Glenwood Bridge.
-
-#### Expected Program Output (with sample user input)
-```
-Please enter the station id: 13206000	
-Please enter the station description: Glenwood Bridge on Boise River
-Please enter the filename: glenwood-boise-year.tsv
-
-...
-```
+There is obviously a lot more we could do with our collection of FlowSample data, but these should be sufficent for our purposes. :)  
 
 ### Program Design
 Please copy FlowSample.java and MonitoringStation.java from the MonitoringStation folder into the RiverFlowStats folder. This will allow the reuse of these classes.  Use the javadoc comments below to implement four additional methods in the MonitoringStation class.
@@ -215,7 +206,7 @@ Please copy FlowSample.java and MonitoringStation.java from the MonitoringStatio
  *
  *    If a FlowSample is found with the same flow rate as the current highest flow rate,
  *    do not update the reference.
- *    If the ArrayList of observations is empty, return Null
+ *    If the ArrayList of observations is empty, return null
  *
  *    @return Reference to FlowSample object containing the highest flow rate value
  */   
@@ -232,7 +223,7 @@ public FlowSample getMaxFlowRate() {...}
  *
  *    If a FlowSample is found with the same flow rate as the current lowest flow rate,
  *    do not update the reference.
- *    If the ArrayList of observations is empty, return Null
+ *    If the ArrayList of observations is empty, return null
  *
  *    @return Reference to FlowSample object containing the lowest flow rate value
  */   
@@ -253,7 +244,7 @@ public double getAvgFlowRate() {...}
 
 ```
 /**
- * Return the total number of FlowSample observation
+ * Return the total number of FlowSample observations
  *
  *    @return Total number of FlowSample observations for this Monitoringstations
  */   
@@ -266,7 +257,7 @@ Use the user supplied StationID and Description to create a new MonitoringStatio
 
 Use the getMaxFlowRate() and getMinFlowRate() methods to get references to FlowSample objects for the respective values. Then call the toString() method on each and display the resulting String data in the console.
 
-Use the getAvgFlowRate() and getNumSamples() methods to get double and int values (respectively) and display them with appropriate label in the console.
+Use the getAvgFlowRate() and getNumSamples() methods to get double and int values (respectively) and display them with appropriate label in the console. Use the DecimalFormat class to format the double value to 4 decimal places.
 
 The examples below show the expected output for a the years 2000, 2010 and 2020.
 
