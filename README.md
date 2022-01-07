@@ -74,7 +74,7 @@ The MonitoringStation class should include a toString() method that will return 
  */
 public String toString() 
 ```
-
+#### Driver Class
 In the main() method of the MonitoringStationDriver class, use a Scanner to prompt the user to enter a StationID, Description and Filename of text file contain tab-delimited sample data.  Check if the file exists (and is a file) and if it does not, display an error message and prompt the user again.
 
 Use the user supplied StationID and Description to create a new MonitoringStation object.  Then call the loadSampleData() method to populated the MonitoringStation with data. Store the return value to a variable and display a message in the console stating that it successfully loaded N samples. Call the displayObservations() method on the MonitoringStation to display the sample data in the console.  Finally, call the toString() method on the MonitoringStation and display the returned String value in the console as a summary of the MonitoringStation. The examples below show the expected output for a couple different datasets.
@@ -83,22 +83,93 @@ NOTE:  You are welcome to copy LabUtility.java class we created in the previous 
 
 #### Expected Program Output (with sample user input)
 ```
-Please enter the station id: 13206000	
+---------------------
+|   Station Setup   |
+---------------------
+Please enter the station id: 13206000
 Please enter the station description: Glenwood Bridge on Boise River
 Please enter the filename: glenwood-boise-1.tsv
+Successfully loaded 1 samples
 
-...
+------------------------
+| Station Observations |
+------------------------
+
+### USGS - 13206000 ###
+Timestamp: Thu 30 Dec 2021 09:30:00 PM UTC
+Flow Rate: 226.0
+
+
+---------------------
+|  Station Summary  |
+---------------------
+StationID: 13206000
+Description: Glenwood Bridge on Boise River
+Number of Observations: 1
 ```
 
 #### Expected Program Output (with sample user input)
 ```
-Please enter the station id: 13206000	
+---------------------
+|   Station Setup   |
+---------------------
+Please enter the station id: 13206000
 Please enter the station description: Glenwood Bridge on Boise River
-Please enter the filename: glenwood-boise-3.tsv
+Please enter the filename: glenwood-boise-3.tsv            
+Successfully loaded 3 samples
 
-...
+------------------------
+| Station Observations |
+------------------------
+
+### USGS - 13206000 ###
+Timestamp: Wed 05 Jan 2022 08:30:00 AM UTC
+Flow Rate: 231.0
+
+
+### USGS - 13206000 ###
+Timestamp: Wed 05 Jan 2022 10:45:00 AM UTC
+Flow Rate: 249.0
+
+
+### USGS - 13206000 ###
+Timestamp: Wed 05 Jan 2022 12:45:00 PM UTC
+Flow Rate: 261.0
+
+
+---------------------
+|  Station Summary  |
+---------------------
+StationID: 13206000
+Description: Glenwood Bridge on Boise River
+Number of Observations: 3
 ```
 
+#### Expected Program Output (with sample user input)
+```
+---------------------
+|   Station Setup   |
+---------------------
+Please enter the station id: 13206000
+Please enter the station description: Glenwood Bridge on Boise River
+Please enter the filename: glenwood-boise-day.tsv            
+Successfully loaded 96 samples
+
+------------------------
+| Station Observations |
+------------------------
+
+<-- removed for clarity --->
+
+---------------------
+|  Station Summary  |
+---------------------
+StationID: 13206000
+Description: Glenwood Bridge on Boise River
+Number of Observations: 96
+```
+
+The following demonstrates the expected error handling behavor for missing for missing files.
 #### Expected Program Output (with sample user input)
 ```
 Please enter the station id: 13206000	
