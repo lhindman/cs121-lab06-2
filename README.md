@@ -263,29 +263,107 @@ The examples below show the expected output for a the years 2000, 2010 and 2020.
 
 #### Expected Program Output (with sample user input)
 ```
-Please enter the station id: 13206000	
-Please enter the station description: Glenwood Bridge on Boise River
+---------------------
+|   Station Setup   |
+---------------------
+Please enter the station id: 13206000
+Please enter the station description: Boise River at Glenwood Bridge - 2000  
 Please enter the filename: glenwood-boise-2000.tsv
+Successfully loaded 32153 samples
 
-...
+---------------------
+|  Max Flow Sample  |
+---------------------
+### USGS - 13206000 ###
+Timestamp: Wed 19 Apr 2000 10:30:00 AM UTC
+Flow Rate: 3870.0
+
+---------------------
+|  Min Flow Sample  |
+---------------------
+### USGS - 13206000 ###
+Timestamp: Tue 08 Feb 2000 11:00:00 PM UTC
+Flow Rate: 188.0
+
+---------------------
+|  Avg Flow Sample  |
+---------------------
+Average Flow: 818.5974
+
+---------------------
+| Number of Samples |
+---------------------
+Sample Count: 32153
 ```
 
 #### Expected Program Output (with sample user input)
 ```
-Please enter the station id: 13206000	
-Please enter the station description: Glenwood Bridge on Boise River
+---------------------
+|   Station Setup   |
+---------------------
+Please enter the station id: 13206000
+Please enter the station description: Boise River at Glenwood Bridge - 2010    
 Please enter the filename: glenwood-boise-2010.tsv
+Successfully loaded 34453 samples
 
-...
+---------------------
+|  Max Flow Sample  |
+---------------------
+### USGS - 13206000 ###
+Timestamp: Sat 12 Jun 2010 01:30:00 AM UTC
+Flow Rate: 6000.0
+
+---------------------
+|  Min Flow Sample  |
+---------------------
+### USGS - 13206000 ###
+Timestamp: Mon 29 Nov 2010 10:00:00 PM UTC
+Flow Rate: 133.0
+
+---------------------
+|  Avg Flow Sample  |
+---------------------
+Average Flow: 729.3648
+
+---------------------
+| Number of Samples |
+---------------------
+Sample Count: 34453
 ```
 
 #### Expected Program Output (with sample user input)
 ```
-Please enter the station id: 13206000	
-Please enter the station description: Glenwood Bridge on Boise River
+---------------------
+|   Station Setup   |
+---------------------
+Please enter the station id: 13206000
+Please enter the station description: Boise River at Glenwood Bridge - 2010
 Please enter the filename: glenwood-boise-2020.tsv
+Successfully loaded 35135 samples
 
-...
+---------------------
+|  Max Flow Sample  |
+---------------------
+### USGS - 13206000 ###
+Timestamp: Thu 30 Apr 2020 04:45:00 PM UTC
+Flow Rate: 1000.0
+
+---------------------
+|  Min Flow Sample  |
+---------------------
+### USGS - 13206000 ###
+Timestamp: Fri 20 Mar 2020 08:00:00 PM UTC
+Flow Rate: 168.0
+
+---------------------
+|  Avg Flow Sample  |
+---------------------
+Average Flow: 471.6461
+
+---------------------
+| Number of Samples |
+---------------------
+Sample Count: 35135
 ```
 
 ### Implementation Guide
