@@ -135,7 +135,7 @@ Please enter the filename: glenwood-boise-1.tsv
 5. Push the changes from your local repository to the github classroom repository.
 6. Take a break, you've earned it!  :)
 
-## Lab Activity 3 - RiverFlowStats
+## Lab Activity 3 - RiverFlowStats (Required)
 ### Problem Description
 When we have a large collection of data it is often desirable to be able to generate statistical information about the data in aggregate. In this activing we are going to extend our MonitoringStation class to provide the following statistics over the observation data:
 - Max Flow Rate
