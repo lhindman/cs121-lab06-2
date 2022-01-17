@@ -1,6 +1,6 @@
 # Module 6 Lab Guide (part 2)
 
-## Lab Activity 2 - MonitoringStation (Required)
+## Lab Activity 2 - MonitoringStation
 ### Problem Description
 The USGS maintains a large number of monitoring stations on rivers around the country. These monitoring stations collect sample data on a wide range of metrics, including flow rate. In this activity we will create a class to represent a monitoring station. Each MonitoringStation class will include a StationID, a Description and a collection of  Observations. These observations will be stored internally as an ArrayList of FlowSample objects and a single station may contain thousands or 10s of thousands of individual FlowSample observations.
 
@@ -184,7 +184,7 @@ Please enter the filename: glenwood-boise-1.tsv
 5. Push the changes from your local repository to the github classroom repository.
 6. Take a break, you've earned it!  :)
 
-## Lab Activity 3 - RiverFlowStats (Required)
+## Lab Activity 3 - RiverFlowStats
 ### Problem Description
 When we have a large collection of data it is often desirable to be able to generate statistical information about the data in aggregate. In this activing we are going to extend our MonitoringStation class to provide the following statistics over the observation data:
 - Max Flow Rate
@@ -373,13 +373,3 @@ Sample Count: 35135
 3. Test the program using the sample user input and compare against the expected output. Carefully think about each of the different cases you'll need to test for to verify that the application is functioning properly.
 4. Commit the changes to your local repository with a message stating that Lab Activity 3 is completed.
 5. Push the changes from your local repository to the github classroom repository.
-
-## Coding Journal (Optional)
-Keep a journal of your activities as you work on this lab. Many of the best engineers that I have worked with professionally have kept some sort of engineering journal. I personally packed notebooks around with me for nearly 8 years before I began keeping my notes electronically.   
-
-Your journal can track ideas, bugs, cool links, code snippets, shell commands, rants, or simply a reflection on what worked well or not-so-well with this lab activity. I will not be grading the content of your journal, but I will expect at least two timestamped journal entries of at least a 75 to 150 words each added to the provided Journal.md file.  The purpose of this component is to help develop the habit of taking notes and creating documentation while you code. The more detail you provide the better as that will help you if you ever need to refer back to this project in the future.
-
-## Markdown Resources
-Markdown is a notation that is used to format text documents.  It is widely used in Software Development shops around the world, which is why we're asking you to use it in your lab documentation.  
-
-Github provides a guide for getting started:  [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
