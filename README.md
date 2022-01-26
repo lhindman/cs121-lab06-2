@@ -1,5 +1,6 @@
 ![CS121 Banner](images/CS121-BANNER.svg)
 # Module 6 Lab Guide (part 2)
+[Lab Introduction Video](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f55e35f5-97ca-4a07-b4bd-ae290012b26e&start=0)  
 
 ## Lab Activity 2 - MonitoringStation
 ### Problem Description
