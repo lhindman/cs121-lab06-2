@@ -2,6 +2,8 @@
 # Module 6 Lab Guide (part 2)
 [Lab Introduction Video](https://boisestate.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=f55e35f5-97ca-4a07-b4bd-ae290012b26e&start=0)  
 
+**NOTE: Please remember to [open the workspace](images/open-lab-workspace.png) before beginning on the lab activities** 
+
 ## Lab Activity 2 - MonitoringStation
 ### Problem Description
 The USGS maintains a large number of monitoring stations on rivers around the country. These monitoring stations collect sample data on a wide range of metrics, including flow rate. In this activity we will create a class to represent a monitoring station. Each MonitoringStation class will include a StationID, a Description and a collection of  Observations. These observations will be stored internally as an ArrayList of FlowSample objects and a single station may contain thousands or 10s of thousands of individual FlowSample observations.
